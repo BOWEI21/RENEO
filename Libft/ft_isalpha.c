@@ -1,31 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bchen <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/25 20:38:15 by bchen             #+#    #+#             */
-/*   Updated: 2024/06/25 21:04:56 by bchen            ###   ########.fr       */
+/*   Created: 2024/06/25 20:50:46 by bchen             #+#    #+#             */
+/*   Updated: 2024/06/25 21:03:44 by bchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <stddef.h>
-# include <stdio.h>
-# include <ctype.h>
-/*
-typedef struct	s_list
+int	ft_isalpha(int i)
 {
-	void	*content
-	struct s_list	*next
-}t_list;
-*/
-
-int	ft_isalpha(int i);
-
-#endif
+	if ((i >= 65 && i <= 90) || (i >= 97 && i <= 122))
+		return (i);
+	else
+		return (0);
+}

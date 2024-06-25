@@ -6,7 +6,7 @@
 #    By: bchen <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/25 20:19:17 by bchen             #+#    #+#              #
-#    Updated: 2024/06/25 20:37:39 by bchen            ###   ########.fr        #
+#    Updated: 2024/06/25 21:05:38 by bchen            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = libft.a
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
-SOURCES = 
+SOURCES = ft_isalpha.c
 
 OBJECTS = $(SOURCES:.c=.o)
 
