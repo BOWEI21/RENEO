@@ -1,27 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bchen <bchen@student.42malaga.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/09 20:04:23 by bchen             #+#    #+#             */
-/*   Updated: 2024/04/12 16:59:42 by bchen            ###   ########.fr       */
+/*   Created: 2024/05/10 17:44:36 by bchen             #+#    #+#             */
+/*   Updated: 2024/05/10 18:17:00 by bchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalpha(int c)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
-		return (1);
-	return (0);
+	t_list	*newlst;
+	t_list	*node;
+	void	*map;
+
+	if (!lst || !f || !del)
+		return (0);
+	newlst = NULL;
+	while (lst != NULL)
+	{
+		map = f(lst->content);
+		node = ft_lstnew(map);
+		if (!node)
+		{
+			del(map);
+			ft_lstclear(&newlst, (*del));
+			return (newlst);
+		}
+		ft_lstadd_back(&newlst, node);
+		lst = lst->next;
+	}
+	return (newlst);
 }
-/*
-int	main(void)
-{
-	printf("ft_isalpha('0') = %d\n", ft_isalpha('0'));
-	printf("ft_isalpha('A') = %d\n", ft_isalpha('A'));
-}
-*/

@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bchen <bchen@student.42malaga.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/09 20:04:23 by bchen             #+#    #+#             */
-/*   Updated: 2024/04/12 16:59:42 by bchen            ###   ########.fr       */
+/*   Created: 2024/05/07 17:13:54 by bchen             #+#    #+#             */
+/*   Updated: 2024/05/07 17:51:03 by bchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalpha(int c)
+t_list	*ft_lstnew(void *content)
 {
-	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
-		return (1);
-	return (0);
+	t_list	*newnode;
+
+	newnode = (t_list *)malloc(sizeof(t_list));
+	if (newnode == NULL)
+		return (NULL);
+	newnode->content = content;
+	newnode->next = NULL;
+	return (newnode);
 }
-/*
-int	main(void)
-{
-	printf("ft_isalpha('0') = %d\n", ft_isalpha('0'));
-	printf("ft_isalpha('A') = %d\n", ft_isalpha('A'));
-}
-*/

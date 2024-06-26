@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bchen <bchen@student.42malaga.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/09 20:04:23 by bchen             #+#    #+#             */
-/*   Updated: 2024/04/12 16:59:42 by bchen            ###   ########.fr       */
+/*   Created: 2024/04/28 16:26:12 by bchen             #+#    #+#             */
+/*   Updated: 2024/04/28 16:54:11 by bchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalpha(int c)
+void	ft_putchar_fd(char c, int fd)
 {
-	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
-		return (1);
-	return (0);
+	write(fd, &c, 1);
 }
-/*
-int	main(void)
-{
-	printf("ft_isalpha('0') = %d\n", ft_isalpha('0'));
-	printf("ft_isalpha('A') = %d\n", ft_isalpha('A'));
-}
-*/

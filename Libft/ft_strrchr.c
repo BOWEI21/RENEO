@@ -1,27 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bchen <bchen@student.42malaga.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/09 20:04:23 by bchen             #+#    #+#             */
-/*   Updated: 2024/04/12 16:59:42 by bchen            ###   ########.fr       */
+/*   Created: 2024/04/16 19:51:54 by bchen             #+#    #+#             */
+/*   Updated: 2024/04/16 20:09:44 by bchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalpha(int c)
+char	*ft_strrchr(const char *str, int c)
 {
-	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
-		return (1);
+	int	i;
+	int	j;
+
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	j = i;
+	while (j >= 0)
+	{
+		if (str[j] == (char) c)
+			return ((char *) &str[j]);
+		else
+			j--;
+	}
+	if ((char) c == '\0')
+		return ((char *) &str[i]);
 	return (0);
 }
 /*
 int	main(void)
 {
-	printf("ft_isalpha('0') = %d\n", ft_isalpha('0'));
-	printf("ft_isalpha('A') = %d\n", ft_isalpha('A'));
+	char word [] = "aaaaggaff ba fefrf";
+	int	ch = 'b';
+	printf("%s", ft_strrchr(word, ch));
+	return (0);
 }
 */

@@ -1,27 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bchen <bchen@student.42malaga.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/09 20:04:23 by bchen             #+#    #+#             */
-/*   Updated: 2024/04/12 16:59:42 by bchen            ###   ########.fr       */
+/*   Created: 2024/04/15 16:26:02 by bchen             #+#    #+#             */
+/*   Updated: 2024/04/15 17:08:04 by bchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalpha(int c)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
-		return (1);
-	return (0);
+	size_t			i;
+	unsigned char	*a;
+	unsigned char	*b;
+
+	i = 0;
+	a = (unsigned char *)dest;
+	b = (unsigned char *)src;
+	if (a == 0 && b == 0)
+		return (0);
+	if (src > dest)
+	{
+		while (i < n)
+		{
+			a[i] = b[i];
+			i++;
+		}
+	}
+	while (i < n)
+	{
+		a[n - 1] = b[n - 1];
+		n--;
+	}
+	return (dest);
 }
 /*
 int	main(void)
 {
-	printf("ft_isalpha('0') = %d\n", ft_isalpha('0'));
-	printf("ft_isalpha('A') = %d\n", ft_isalpha('A'));
+	char	s[] = "sbsbsb";
+	char	b[] = "qsqsqsqs";
+	printf ("%s", ft_memmove(((void *)s), ((void *)b), 5));
 }
 */

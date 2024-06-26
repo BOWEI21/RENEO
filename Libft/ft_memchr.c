@@ -1,27 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bchen <bchen@student.42malaga.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/09 20:04:23 by bchen             #+#    #+#             */
-/*   Updated: 2024/04/12 16:59:42 by bchen            ###   ########.fr       */
+/*   Created: 2024/04/17 15:45:21 by bchen             #+#    #+#             */
+/*   Updated: 2024/04/17 18:32:43 by bchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalpha(int c)
+void	*ft_memchr(const void *str, int c, size_t n)
 {
-	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
-		return (1);
+	size_t		i;
+	const char	*a;
+
+	a = (const char *) str;
+	i = 0;
+	while (i < n)
+	{
+		if (a[i] == (char) c)
+			return ((void *) &a[i]);
+		else
+			i++;
+	}
 	return (0);
 }
 /*
 int	main(void)
 {
-	printf("ft_isalpha('0') = %d\n", ft_isalpha('0'));
-	printf("ft_isalpha('A') = %d\n", ft_isalpha('A'));
+	char	ar [] = "SHFH AHHDHE HSH";
+	int		ch = 'F';
+	printf("%s", ft_memchr(ar, ch ,6));
+	return (0);
 }
 */
