@@ -6,7 +6,7 @@
 #    By: bchen <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/02 17:03:48 by bchen             #+#    #+#              #
-#    Updated: 2024/07/15 21:57:47 by bchen            ###   ########.fr        #
+#    Updated: 2024/07/23 21:04:45 by bchen            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CC = clang
 CFLAGS = -Wall -Wextra -Werror
 AR = ar -rcs
 
-SOURCES = ft_putchar.c ft_putstr.c ft_putnbr.c 
+SOURCES = ft_printf.c ft_putchar.c ft_putstr.c ft_putnbr.c ft_hexadecimal.c ft_putptr.c ft_unsigned.c
 
 OBJECTS = $(SOURCES:.c=.o)
 

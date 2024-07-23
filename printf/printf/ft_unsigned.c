@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_unsigned.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bchen <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/02 18:49:02 by bchen             #+#    #+#             */
-/*   Updated: 2024/07/23 21:03:58 by bchen            ###   ########.fr       */
+/*   Created: 2024/07/23 19:56:36 by bchen             #+#    #+#             */
+/*   Updated: 2024/07/23 20:10:55 by bchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <unistd.h>
-# include <stdarg.h>
-# include <stdlib.h>
-# include <stdint.h>
+int	ft_unsigned(unsigned int n)
+{
+	int	size;
 
-int	ft_printf(char const *string, ...);
-int	ft_putchar(char a);
-int	ft_putstr(char *str);
-int	ft_putnbr(int n);
-int	ft_hexadecimal(unsigned long long n, char c);
-int	ft_putptr(uintptr_t n);
-int	ft_unsigned(unsigned int n);
-
-#endif
+	size = 0;
+	if (n == 0)
+		size += ft_putchar('0');
+	else
+	{
+		if (n / 10 != 0)
+			ft_unsigned(n / 10);
+		ft_putchar((n % 10) + '0');
+		while (n > 0)
+		{
+			n /= 10;
+			size++;
+		}
+	}
+	return (size);
+}

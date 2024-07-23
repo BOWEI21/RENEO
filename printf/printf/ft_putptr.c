@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putptr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bchen <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/02 18:49:02 by bchen             #+#    #+#             */
-/*   Updated: 2024/07/23 21:03:58 by bchen            ###   ########.fr       */
+/*   Created: 2024/07/16 20:44:25 by bchen             #+#    #+#             */
+/*   Updated: 2024/07/16 21:08:37 by bchen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <unistd.h>
-# include <stdarg.h>
-# include <stdlib.h>
-# include <stdint.h>
+int	ft_putptr(uintptr_t n)
+{
+	size_t	i;
 
-int	ft_printf(char const *string, ...);
-int	ft_putchar(char a);
-int	ft_putstr(char *str);
-int	ft_putnbr(int n);
-int	ft_hexadecimal(unsigned long long n, char c);
-int	ft_putptr(uintptr_t n);
-int	ft_unsigned(unsigned int n);
-
-#endif
+	i = 0;
+	if (!n)
+		return (ft_putstr("(nil)"));
+	i += ft_putstr("0x");
+	i += ft_hexadecimal(n, 'x');
+	return (i);
+}
